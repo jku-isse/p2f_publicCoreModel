@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ManufacturingServerModels/src" modelPluginID="ManufacturingServerModels"
     modelName="LinkedModel_PartToProcess" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="Part.genmodel#//PartCoreModel ProcessCore.genmodel#//ProcessCore"
+    usedGenPackages="Part.genmodel#//PartCoreModel ProcessCore.genmodel#//ProcessCore Extensions.genmodel#//ExtensionsCoreModel"
     operationReflection="true" importOrganizing="true">
   <foreignModel>LinkedModel_PartToProcess.ecore</foreignModel>
   <genPackages prefix="Partprocess" disposableProviderFactory="true" ecorePackage="LinkedModel_PartToProcess.ecore#/">
@@ -11,6 +11,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LinkedModel_PartToProcess.ecore#//PartUsage/UsedPart"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LinkedModel_PartToProcess.ecore#//PartUsage/ProcessStep"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LinkedModel_PartToProcess.ecore#//PartUsage/Amount"/>
+    </genClasses>
+    <genClasses ecoreClass="LinkedModel_PartToProcess.ecore#//PartUsageExtension">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LinkedModel_PartToProcess.ecore#//PartUsageExtension/PartUsageList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LinkedModel_PartToProcess.ecore#//PartUsageExtension/Description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

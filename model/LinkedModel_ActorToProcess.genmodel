@@ -25,5 +25,23 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//ActorAllocationExtension/ActorAllocationList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LinkedModel_ActorToProcess.ecore#//ActorAllocationExtension/Description"/>
     </genClasses>
+    <genClasses ecoreClass="LinkedModel_ActorToProcess.ecore#//CapabilityRequirement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//CapabilityRequirement/Actor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//CapabilityRequirement/Capability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//CapabilityRequirement/Role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LinkedModel_ActorToProcess.ecore#//CapabilityRequirement/Path"/>
+    </genClasses>
+    <genClasses ecoreClass="LinkedModel_ActorToProcess.ecore#//CapabilityRequirementExtension">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//CapabilityRequirementExtension/CapabilityRequirementList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LinkedModel_ActorToProcess.ecore#//CapabilityRequirementExtension/Description"/>
+    </genClasses>
+    <genClasses ecoreClass="LinkedModel_ActorToProcess.ecore#//CapabilityLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//CapabilityLink/ProvidedCapability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//CapabilityLink/ConsumedCapability"/>
+    </genClasses>
+    <genClasses ecoreClass="LinkedModel_ActorToProcess.ecore#//CapabilityLinkExtension">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LinkedModel_ActorToProcess.ecore#//CapabilityLinkExtension/CapabilityLinkList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LinkedModel_ActorToProcess.ecore#//CapabilityLinkExtension/Description"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
