@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/p2f_publicCoreModel/src" modelPluginID="p2f_publicCoreModel"
+    modelName="Simulator" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Simulator.ecore</foreignModel>
+  <genPackages prefix="Simulator" disposableProviderFactory="true" ecorePackage="Simulator.ecore#/">
+    <genClasses ecoreClass="Simulator.ecore#//MachineSimulator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MachineSimulator/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/opcuaserverinterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/instanceinformation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/stateMachine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//MsInstanceInformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/displayName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/port"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//MsServerInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsServerInterface/namespaceUri"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsServerInterface/nodes"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//MsClientInterface">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsClientInterface/targetInstanceInformation"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//MsWriteAction"/>
+    <genClasses ecoreClass="Simulator.ecore#//MsReadAction"/>
+    <genClasses image="false" ecoreClass="Simulator.ecore#//MsAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsAction/opcuaclientinterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsAction/processOpcUaMappings"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Simulator.ecore#//MsAction/reactsTo"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//ProcessOpcUaMapping"/>
+    <genClasses ecoreClass="Simulator.ecore#//ProcessOpcUaObjectMapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaObjectMapping/processOpcUaMapping"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaObjectMapping/objectNode"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//ProcessOpcUaVariableMapping">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaVariableMapping/variableNode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaVariableMapping/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//MsCallMethodAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsCallMethodAction/processopcuamethodmapping"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="ProcessCore" disposableProviderFactory="true" ecorePackage="ProcessCoreModel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ProcessCoreModel.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="ProcessCoreModel.ecore#//Operator/eq"/>
+      <genEnumLiterals ecoreEnumLiteral="ProcessCoreModel.ecore#//Operator/ls"/>
+      <genEnumLiterals ecoreEnumLiteral="ProcessCoreModel.ecore#//Operator/leq"/>
+      <genEnumLiterals ecoreEnumLiteral="ProcessCoreModel.ecore#//Operator/gt"/>
+      <genEnumLiterals ecoreEnumLiteral="ProcessCoreModel.ecore#//Operator/geq"/>
+      <genEnumLiterals ecoreEnumLiteral="ProcessCoreModel.ecore#//Operator/neq"/>
+    </genEnums>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//XmlRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//XmlRoot/ExtensionContent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//XmlRoot/Processes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//XmlRoot/Capabilities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//XmlRoot/DisplayName"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//AbstractCapability">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//AbstractCapability/Capabilities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//AbstractCapability/DisplayName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//AbstractCapability/uri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//AbstractCapability/ID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//AbstractCapability/Variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//AbstractCapability/Inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//AbstractCapability/Outputs"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//AbstractLoop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//AbstractLoop/Condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//AbstractLoop/Body"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//Assignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//Assignment/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//CapabilityInvocation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//CapabilityInvocation/InvokedCapability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//CapabilityInvocation/assignedTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//CapabilityInvocation/InputMappings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//CapabilityInvocation/OutputMappings"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ProcessCoreModel.ecore#//Condition"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//Constant"/>
+    <genClasses image="false" ecoreClass="ProcessCoreModel.ecore#//ControlStep"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//Decision">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Decision/Condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Decision/If"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Decision/Else"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//Event/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Event/Role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Event/Parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//EventSink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//EventSink/Event"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//EventSource">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//EventSource/Event"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//HeadLoop"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//LocalVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//LocalVariable/URI"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//ModifyVariableStep">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ModifyVariableStep/ModifiedVariable"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//ParallelBranches">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ParallelBranches/Branches"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//Parameter/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//Parameter/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//Parameter/Value"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//Process">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Process/Steps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Process/Assignments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Process/Variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Process/Capabilities"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Process/InputMappings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Process/OutputMappings"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//ProcessStep">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ProcessStep/Role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//ProcessStep/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//ProcessStep/DisplayName"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//SimpleCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//SimpleCondition/Operator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//SimpleCondition/rhs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//SimpleCondition/lhs"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//TailLoop"/>
+    <genClasses image="false" ecoreClass="ProcessCoreModel.ecore#//HumanStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//HumanStep/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//HumanStep/Description"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//Case">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//Case/Tasks"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//ProcessReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProcessCoreModel.ecore#//ProcessReference/url"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ProcessReference/InputMappings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ProcessReference/OutputMappings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ProcessReference/Variables"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//AdditionStep">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//AdditionStep/Summands"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//SetVariableStep">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//SetVariableStep/rhs"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//BufferedEventStep"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//ReadVariableCapability"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//ReadParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ReadParameter/LocalVariable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//ReadParameter/Parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//WriteParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//WriteParameter/Parameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//WriteParameter/LocalVariable"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//WriteVariableCapability"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//ReceiveEventCapability"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//SendEventCapability"/>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//VariableMapping">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//VariableMapping/lhs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProcessCoreModel.ecore#//VariableMapping/rhs"/>
+    </genClasses>
+    <genClasses ecoreClass="ProcessCoreModel.ecore#//VariableCapability"/>
+  </genPackages>
+  <genPackages prefix="OpcUaDefinition" disposableProviderFactory="true" ecorePackage="OpcUaDefinition.ecore#/">
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsMethodNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsMethodNode/executable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsMethodNode/userExecutalbe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsMethodNode/inputArguments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsMethodNode/outputArguments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsMethodNode/method"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="OpcUaDefinition.ecore#//MsNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNode/writeMask"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNode/userWriteMask"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/nodeId"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/description"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/displayName"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/browseName"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsPropertyNode"/>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsViewNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsViewNode/containsNoLoops"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsViewNode/eventNotifier"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsReferenceTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsReferenceTypeNode/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsReferenceTypeNode/symmetric"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsReferenceTypeNode/inverseName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="OpcUaDefinition.ecore#//MsVariableNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/valueRank"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/accessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/userAccessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/minimumSamplingInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/historizing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsVariableNode/dataType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsVariableNode/hasModellingRule"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsObjectTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsObjectTypeNode/isAbstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectTypeNode/hasComponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectTypeNode/hasSubtype"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsVariableTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/valueRank"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/isAbstract"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsDataTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsDataTypeNode/isAbstract"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsObjectNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasComponent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsObjectNode/eventNotifier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasTypeDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasProperty"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/organizes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasModellingRule"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsDataVariableNode"/>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsNodeId">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNodeId/Identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNodeId/namespaceIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNodeId/allowOverrideNamespaceIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsLocalizedText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsLocalizedText/locale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsLocalizedText/text"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsQualifiedName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsQualifiedName/namespaceIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsQualifiedName/name"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="ExtensionsCoreModel" disposableProviderFactory="true" ecorePackage="Extensions.ecore#/">
+    <genClasses ecoreClass="Extensions.ecore#//Extension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Extensions.ecore#//Extension/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Extensions.ecore#//Extension/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Extensions.ecore#//ExtensibleObject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Extensions.ecore#//ExtensibleObject/extensions"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Simulator -->
+      <package
+            uri="http://at.pro2future/shopfloors/simulator"
+            class="Simulator.SimulatorPackage"
+            genModel="model/Simulator.genmodel"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Simulator -->
+      <package
+            uri="http://at.pro2future/shopfloors/processcore"
+            class="ProcessCore.ProcessCorePackage"
+            genModel="model/Simulator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Simulator -->
+      <package
+            uri="at.pro2future.shopfloors.extensions"
+            class="ExtensionsCoreModel.ExtensionsCoreModelPackage"
+            genModel="model/Simulator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Simulator -->
+      <package
+            uri="http://at.pro2future/shopfloors/opcUaDefinition"
+            class="OpcUaDefinition.OpcUaDefinitionPackage"
+            genModel="model/Simulator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated OpcUaDefiniton -->
+      <package
+            uri="http://at.pro2future/shopfloors/opcUaDefinitons"
+            class="OpcUaDefiniton.OpcUaDefinitonPackage"
+            genModel="model/OpcUaDefinition.genmodel"/>
+   </extension>
+
+</plugin>

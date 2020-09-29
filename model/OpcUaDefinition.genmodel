@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/p2f_publicCoreModel/src" modelPluginID="p2f_publicCoreModel"
+    modelName="OpcUaDefinition" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>OpcUaDefinition.ecore</foreignModel>
+  <genPackages prefix="OpcUaDefinition" disposableProviderFactory="true" ecorePackage="OpcUaDefinition.ecore#/">
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsMethodNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsMethodNode/executable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsMethodNode/userExecutalbe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsMethodNode/inputArguments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsMethodNode/outputArguments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsMethodNode/method"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="OpcUaDefinition.ecore#//MsNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNode/writeMask"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNode/userWriteMask"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/nodeId"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/description"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/displayName"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsNode/browseName"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsPropertyNode"/>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsViewNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsViewNode/containsNoLoops"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsViewNode/eventNotifier"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsReferenceTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsReferenceTypeNode/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsReferenceTypeNode/symmetric"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsReferenceTypeNode/inverseName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="OpcUaDefinition.ecore#//MsVariableNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/valueRank"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/accessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/userAccessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/minimumSamplingInterval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableNode/historizing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsVariableNode/dataType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsVariableNode/hasModellingRule"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsObjectTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsObjectTypeNode/isAbstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectTypeNode/hasComponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectTypeNode/hasSubtype"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsVariableTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/valueRank"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsVariableTypeNode/isAbstract"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsDataTypeNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsDataTypeNode/isAbstract"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsObjectNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasComponent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsObjectNode/eventNotifier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasTypeDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasProperty"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/organizes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OpcUaDefinition.ecore#//MsObjectNode/hasModellingRule"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsDataVariableNode"/>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsNodeId">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNodeId/Identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNodeId/namespaceIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsNodeId/allowOverrideNamespaceIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsLocalizedText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsLocalizedText/locale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsLocalizedText/text"/>
+    </genClasses>
+    <genClasses ecoreClass="OpcUaDefinition.ecore#//MsQualifiedName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsQualifiedName/namespaceIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OpcUaDefinition.ecore#//MsQualifiedName/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

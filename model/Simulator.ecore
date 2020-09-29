@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Simulator" nsURI="http://at.pro2future/shopfloors/simulator"
+    nsPrefix="at.pro2future.shopfloors.simulator">
+  <eClassifiers xsi:type="ecore:EClass" name="MachineSimulator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="opcuaserverinterface" lowerBound="1"
+        eType="#//MsServerInterface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instanceinformation" lowerBound="1"
+        eType="#//MsInstanceInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateMachine" lowerBound="1"
+        eType="ecore:EClass ProcessCoreModel.ecore#//Process" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//MsAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsInstanceInformation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsServerInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespaceUri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsClientInterface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetInstanceInformation"
+        lowerBound="1" eType="#//MsInstanceInformation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsWriteAction" eSuperTypes="#//MsAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MsReadAction" eSuperTypes="#//MsAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MsAction" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="opcuaclientinterface" lowerBound="1"
+        eType="#//MsClientInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processOpcUaMappings" lowerBound="1"
+        upperBound="-1" eType="#//ProcessOpcUaMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reactsTo" lowerBound="1"
+        eType="ecore:EClass ProcessCoreModel.ecore#//Event"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessOpcUaMapping" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessOpcUaObjectMapping" eSuperTypes="#//ProcessOpcUaMapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processOpcUaMapping" upperBound="-1"
+        eType="#//ProcessOpcUaMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objectNode" lowerBound="1"
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsObjectNode" volatile="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessOpcUaVariableMapping" eSuperTypes="#//ProcessOpcUaMapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variableNode" lowerBound="1"
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsVariableNode" volatile="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+        eType="ecore:EClass ProcessCoreModel.ecore#//Parameter" volatile="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsCallMethodAction" eSuperTypes="#//MsAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processopcuamethodmapping"
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsMethodNode"/>
+  </eClassifiers>
+</ecore:EPackage>
