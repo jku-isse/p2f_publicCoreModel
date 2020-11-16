@@ -18,7 +18,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Simulator -->
       <package
-            uri="http://at.pro2future/shopfloors/processcore"
+            uri="at.pro2future.shopfloors.processcore"
             class="ProcessCore.ProcessCorePackage"
             genModel="model/Simulator.genmodel"/>
    </extension>

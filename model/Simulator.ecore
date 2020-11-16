@@ -21,11 +21,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="MsServerInterface">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespaceUri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
-        eType="ecore:EClass OpcUaDefinition.ecore#//MsNode"/>
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsNode" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MsClientInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetInstanceInformation"
-        lowerBound="1" eType="#//MsInstanceInformation" containment="true"/>
+        lowerBound="1" eType="#//MsInstanceInformation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MsWriteAction" eSuperTypes="#//MsAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="MsReadAction" eSuperTypes="#//MsAction"/>
@@ -49,7 +49,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
         eType="ecore:EClass ProcessCoreModel.ecore#//Parameter" volatile="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MsCallMethodAction" eSuperTypes="#//MsAction">
+  <eClassifiers xsi:type="ecore:EClass" name="MsMethodAction" eSuperTypes="#//MsAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="callesMethod" lowerBound="1"
         eType="ecore:EClass OpcUaDefinition.ecore#//MsMethodNode" volatile="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnParameterMapping"
