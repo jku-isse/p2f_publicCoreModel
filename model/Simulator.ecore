@@ -17,6 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MsServerInterface">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespaceUri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -51,10 +52,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MsMethodAction" eSuperTypes="#//MsAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="callesMethod" lowerBound="1"
-        eType="ecore:EClass OpcUaDefinition.ecore#//MsMethodNode" volatile="true"/>
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId" volatile="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnParameterMapping"
         eType="#//ProcessOpcUaMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="objectContainingMethod"
-        lowerBound="1" eType="ecore:EClass OpcUaDefinition.ecore#//MsObjectNode" volatile="true"/>
+        lowerBound="1" eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId" volatile="true"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

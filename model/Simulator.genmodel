@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/p2f_publicCoreModel/src" modelPluginID="p2f_publicCoreModel"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/p2f_publicCoreModel/src/main/java" editDirectory="/p2f_publicCoreModel.edit/src/main/java"
+    editorDirectory="/p2f_publicCoreModel.editor/src/main/java" modelPluginID="p2f_publicCoreModel"
     modelName="Simulator" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    testsDirectory="/p2f_publicCoreModel.tests/src/main/java" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>Simulator.ecore</foreignModel>
   <genPackages prefix="Simulator" disposableProviderFactory="true" ecorePackage="Simulator.ecore#/">
     <genClasses ecoreClass="Simulator.ecore#//MachineSimulator">
@@ -17,6 +18,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/displayName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/host"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/path"/>
     </genClasses>
     <genClasses ecoreClass="Simulator.ecore#//MsServerInterface">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsServerInterface/namespaceUri"/>
@@ -44,7 +46,7 @@
     <genClasses ecoreClass="Simulator.ecore#//MsMethodAction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodAction/callesMethod"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodAction/returnParameterMapping"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodAction/objectContainingMethod"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodAction/objectContainingMethod"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="ProcessCore" disposableProviderFactory="true" ecorePackage="ProcessCoreModel.ecore#/">
