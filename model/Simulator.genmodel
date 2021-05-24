@@ -10,9 +10,8 @@
     <genClasses ecoreClass="Simulator.ecore#//MachineSimulator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MachineSimulator/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/opcUaServerInterface"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/instanceInformation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/stateMachine"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MachineSimulator/adressSpaceActions"/>
     </genClasses>
     <genClasses ecoreClass="Simulator.ecore#//MsInstanceInformation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsInstanceInformation/displayName"/>
@@ -23,30 +22,40 @@
     <genClasses ecoreClass="Simulator.ecore#//MsServerInterface">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Simulator.ecore#//MsServerInterface/namespaceUri"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsServerInterface/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsServerInterface/instanceInformation"/>
     </genClasses>
     <genClasses ecoreClass="Simulator.ecore#//MsClientInterface">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsClientInterface/targetInstanceInformation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsClientInterface/instanceInformation"/>
     </genClasses>
-    <genClasses ecoreClass="Simulator.ecore#//MsWriteAction"/>
-    <genClasses ecoreClass="Simulator.ecore#//MsReadAction"/>
-    <genClasses image="false" ecoreClass="Simulator.ecore#//MsAction">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsAction/opcUaClientInterface"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsAction/parameterMappings"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Simulator.ecore#//MsAction/refersTo"/>
+    <genClasses ecoreClass="Simulator.ecore#//MsWriteEventAdressSpaceAction"/>
+    <genClasses ecoreClass="Simulator.ecore#//MsReadEventAdressSpaceAction"/>
+    <genClasses image="false" ecoreClass="Simulator.ecore#//MsAdressSpaceAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsAdressSpaceAction/opcUaClientInterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsAdressSpaceAction/parameterMappings"/>
     </genClasses>
-    <genClasses ecoreClass="Simulator.ecore#//ProcessOpcUaMapping"/>
-    <genClasses ecoreClass="Simulator.ecore#//ProcessOpcUaObjectMapping">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaObjectMapping/processOpcUaMappings"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaObjectMapping/objectNode"/>
+    <genClasses ecoreClass="Simulator.ecore#//ProcessOpcUaMapping">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaMapping/attributeNodeId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaMapping/parameter"/>
     </genClasses>
-    <genClasses ecoreClass="Simulator.ecore#//ProcessOpcUaVariableMapping">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaVariableMapping/variableNode"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//ProcessOpcUaVariableMapping/parameter"/>
+    <genClasses ecoreClass="Simulator.ecore#//MsMethodEventAdressSpaceAction">
+      <genFeatures documentation="Referens the method which will be called by this handler."
+          notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodEventAdressSpaceAction/callesMethod"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodEventAdressSpaceAction/returnParameterMapping"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodEventAdressSpaceAction/objectContainingMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodEventAdressSpaceAction/returnEvent"/>
     </genClasses>
-    <genClasses ecoreClass="Simulator.ecore#//MsMethodAction">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodAction/callesMethod"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodAction/returnParameterMapping"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsMethodAction/objectContainingMethod"/>
+    <genClasses ecoreClass="Simulator.ecore#//MsEventAdressSpaceAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsEventAdressSpaceAction/refersTo"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Simulator.ecore#//MsCapabilityAdressSpaceAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsCapabilityAdressSpaceAction/refersTo"/>
+    </genClasses>
+    <genClasses ecoreClass="Simulator.ecore#//MsWriteCapabilityAdressSpaceAction"/>
+    <genClasses ecoreClass="Simulator.ecore#//MsReadCapabilityAdressSpaceAction"/>
+    <genClasses ecoreClass="Simulator.ecore#//MsCallMethodCapabilityAdressSpaceAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Simulator.ecore#//MsCallMethodCapabilityAdressSpaceAction/returnParameterMapping"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Simulator.ecore#//MsCallMethodCapabilityAdressSpaceAction/callesMethod"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Simulator.ecore#//MsCallMethodCapabilityAdressSpaceAction/objectContainingMethod"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="ProcessCore" disposableProviderFactory="true" ecorePackage="ProcessCoreModel.ecore#/">

@@ -3,60 +3,139 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Simulator" nsURI="http://at.pro2future/shopfloors/simulator"
     nsPrefix="at.pro2future.shopfloors.simulator">
   <eClassifiers xsi:type="ecore:EClass" name="MachineSimulator">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents a machine simulator. A machine simulator contains a server interface, a client interface and some actions that can interact with these interfaces."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="opcUaServerInterface" lowerBound="1"
-        eType="#//MsServerInterface" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instanceInformation" lowerBound="1"
-        eType="#//MsInstanceInformation" containment="true"/>
+        eType="#//MsServerInterface" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="References the server interface of the server."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateMachine" lowerBound="1"
         eType="ecore:EClass ProcessCoreModel.ecore#//Process" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
-        eType="#//MsAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adressSpaceActions" upperBound="-1"
+        eType="#//MsAdressSpaceAction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MsInstanceInformation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An instance information of an OPC-UA server. This instance information is either used to launch an OPC-UA Server or to connect to an OPC-UA Server."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MsServerInterface">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines how the server interface of this machine simulator is defined."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespaceUri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
         eType="ecore:EClass OpcUaDefinition.ecore#//MsNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instanceInformation" lowerBound="1"
+        eType="#//MsInstanceInformation" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The connection parameters of the OPC-UA server."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MsClientInterface">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetInstanceInformation"
-        lowerBound="1" eType="#//MsInstanceInformation"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Contains the infromation which are required to connect ot an OPC-UA Server."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instanceInformation" lowerBound="1"
+        eType="#//MsInstanceInformation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The connection parameters of the OPC-UA server."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MsWriteAction" eSuperTypes="#//MsAction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MsReadAction" eSuperTypes="#//MsAction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MsAction" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="MsWriteEventAdressSpaceAction" eSuperTypes="#//MsEventAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Executes a write on the OPC-UA adressspace whenever an event occures."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsReadEventAdressSpaceAction" eSuperTypes="#//MsEventAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Executes a read action on the OPC-UA adressspace whenever an a change occures and sends an event."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsAdressSpaceAction" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Triggers a specifc action on an OPC-UA adresss space whenever a specifc action has happend."/>
+    </eAnnotations>
+    <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
+      <details key="archetype" value="MomentInterval"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="opcUaClientInterface" lowerBound="1"
-        eType="#//MsClientInterface"/>
+        eType="#//MsClientInterface">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Contains the required information for the client."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterMappings" upperBound="-1"
         eType="#//ProcessOpcUaMapping" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refersTo" eType="ecore:EClass ProcessCoreModel.ecore#//Event"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessOpcUaMapping" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessOpcUaObjectMapping" eSuperTypes="#//ProcessOpcUaMapping">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="processOpcUaMappings" lowerBound="1"
-        upperBound="-1" eType="#//ProcessOpcUaMapping" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objectNode" lowerBound="1"
-        eType="ecore:EClass OpcUaDefinition.ecore#//MsObjectNode" volatile="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProcessOpcUaVariableMapping" eSuperTypes="#//ProcessOpcUaMapping">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variableNode" lowerBound="1"
-        eType="ecore:EClass OpcUaDefinition.ecore#//MsVariableNode" volatile="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessOpcUaMapping">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The process mapping provided by the OPC-UA server."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeNodeId" lowerBound="1"
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
-        eType="ecore:EClass ProcessCoreModel.ecore#//Parameter" volatile="true"/>
+        eType="ecore:EClass ProcessCoreModel.ecore#//Parameter"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MsMethodAction" eSuperTypes="#//MsAction">
+  <eClassifiers xsi:type="ecore:EClass" name="MsMethodEventAdressSpaceAction" eSuperTypes="#//MsEventAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Calls a method on an OPC-UA address space whenenver an event was received by this class and sends the return parameters back as events."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callesMethod" lowerBound="1"
-        eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId" volatile="true" containment="true"/>
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnParameterMapping"
-        eType="#//ProcessOpcUaMapping" containment="true"/>
+        upperBound="-1" eType="#//ProcessOpcUaMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="objectContainingMethod"
-        lowerBound="1" eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId" volatile="true"
-        containment="true"/>
+        lowerBound="1" eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnEvent" eType="ecore:EClass ProcessCoreModel.ecore#//Event"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsEventAdressSpaceAction" abstract="true"
+      eSuperTypes="#//MsAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Executes a specific action on the OPC-UA adressspace whenever an event occures or sends an event whenever a specific action happens."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersTo" lowerBound="1"
+        eType="ecore:EClass ProcessCoreModel.ecore#//Event"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsCapabilityAdressSpaceAction" abstract="true"
+      eSuperTypes="#//MsAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Executes a specific action on the OPC-UA adressspace whenever an capability was triggerd."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refersTo" lowerBound="1"
+        eType="ecore:EClass ProcessCoreModel.ecore#//AbstractCapability"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsWriteCapabilityAdressSpaceAction"
+      eSuperTypes="#//MsCapabilityAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Executes a write action whenever a capability was triggered."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsReadCapabilityAdressSpaceAction" eSuperTypes="#//MsCapabilityAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Executes a read action whenever a capability was triggered."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MsCallMethodCapabilityAdressSpaceAction"
+      eSuperTypes="#//MsCapabilityAdressSpaceAction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Executes a call action whenever a capability was triggered."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnParameterMapping"
+        upperBound="-1" eType="#//ProcessOpcUaMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callesMethod" lowerBound="1"
+        eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objectContainingMethod"
+        lowerBound="1" eType="ecore:EClass OpcUaDefinition.ecore#//MsNodeId"/>
   </eClassifiers>
 </ecore:EPackage>

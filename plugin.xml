@@ -39,12 +39,4 @@
             genModel="model/Simulator.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated OpcUaDefiniton -->
-      <package
-            uri="http://at.pro2future/shopfloors/opcUaDefinitons"
-            class="OpcUaDefiniton.OpcUaDefinitonPackage"
-            genModel="model/OpcUaDefinition.genmodel"/>
-   </extension>
-
 </plugin>
