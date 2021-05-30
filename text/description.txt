@@ -16,45 +16,54 @@ Package Simulator <http://at.pro2future/shopfloors/simulator>
   Class MachineSimulator
     Attribute name : EString
     Reference opcUaServerInterface : MsServerInterface<<1..1>>
-    Reference instanceInformation : MsInstanceInformation<<1..1>>
     Reference stateMachine : Process<<1..1>>
-    Reference actions : MsAction<<0..*>>
+    Reference adressSpaceActions : MsAdressSpaceAction<<0..*>>
 
   Class MsInstanceInformation
     Attribute displayName : EString
-    Attribute host : EString
-    Attribute port : EIntegerObject
+    Attribute host : EString<<1..1>>
+    Attribute port : EInt<<1..1>>
     Attribute path : EString
 
   Class MsServerInterface
     Attribute namespaceUri : EString
     Reference nodes : MsNode<<0..*>>
+    Reference instanceInformation : MsInstanceInformation<<1..1>>
 
   Class MsClientInterface
-    Reference targetInstanceInformation : MsInstanceInformation<<1..1>>
+    Reference instanceInformation : MsInstanceInformation<<1..1>>
 
-  Class MsWriteAction -> MsAction
+  Class MsWriteEventAdressSpaceAction -> MsEventAdressSpaceAction
 
-  Class MsReadAction -> MsAction
+  Class MsReadEventAdressSpaceAction -> MsEventAdressSpaceAction
 
-  Class MsAction
+  Class MsAdressSpaceAction
     Reference opcUaClientInterface : MsClientInterface<<1..1>>
     Reference parameterMappings : ProcessOpcUaMapping<<0..*>>
-    Reference refersTo : Event
 
   Class ProcessOpcUaMapping
-
-  Class ProcessOpcUaObjectMapping -> ProcessOpcUaMapping
-    Reference processOpcUaMappings : ProcessOpcUaMapping<<1..*>>
-    Reference objectNode : MsObjectNode<<1..1>>
-
-  Class ProcessOpcUaVariableMapping -> ProcessOpcUaMapping
-    Reference variableNode : MsVariableNode<<1..1>>
+    Reference attributeNodeId : MsNodeId<<1..1>>
     Reference parameter : Parameter<<1..1>>
 
-  Class MsMethodAction -> MsAction
+  Class MsMethodEventAdressSpaceAction -> MsEventAdressSpaceAction
     Reference callesMethod : MsNodeId<<1..1>>
-    Reference returnParameterMapping : ProcessOpcUaMapping
+    Reference returnParameterMapping : ProcessOpcUaMapping<<0..*>>
+    Reference objectContainingMethod : MsNodeId<<1..1>>
+    Reference returnEvent : Event
+
+  Class MsEventAdressSpaceAction -> MsAdressSpaceAction
+    Reference refersTo : Event<<1..1>>
+
+  Class MsCapabilityAdressSpaceAction -> MsAdressSpaceAction
+    Reference refersTo : AbstractCapability<<1..1>>
+
+  Class MsWriteCapabilityAdressSpaceAction -> MsCapabilityAdressSpaceAction
+
+  Class MsReadCapabilityAdressSpaceAction -> MsCapabilityAdressSpaceAction
+
+  Class MsCallMethodCapabilityAdressSpaceAction -> MsCapabilityAdressSpaceAction
+    Reference returnParameterMapping : ProcessOpcUaMapping<<0..*>>
+    Reference callesMethod : MsNodeId<<1..1>>
     Reference objectContainingMethod : MsNodeId<<1..1>>
 
 Package ProcessCore <at.pro2future.shopfloors.processcore>
@@ -199,15 +208,15 @@ Package ProcessCore <at.pro2future.shopfloors.processcore>
 Package OpcUaDefinition <http://at.pro2future/shopfloors/opcUaDefinition>
 
   Class MsMethodNode -> MsNode
-    Attribute executable : EBooleanObject
-    Attribute userExecutalbe : EBooleanObject
+    Attribute executable : EBoolean
+    Attribute userExecutalbe : EBoolean
     Reference inputArguments : MsVariableNode<<0..*>>
     Reference outputArguments : MsVariableNode<<0..*>>
     Attribute method : EString<<1..1>>
 
   Class MsNode
-    Attribute writeMask : EIntegerObject
-    Attribute userWriteMask : EIntegerObject
+    Attribute writeMask : EInt
+    Attribute userWriteMask : EInt
     Reference nodeId : MsNodeId<<1..1>>
     Reference description : MsLocalizedText
     Reference displayName : MsLocalizedText
@@ -216,12 +225,12 @@ Package OpcUaDefinition <http://at.pro2future/shopfloors/opcUaDefinition>
   Class MsPropertyNode -> MsVariableNode
 
   Class MsViewNode -> MsNode
-    Attribute containsNoLoops : EBoolean
+    Attribute containsNoLoops : EBooleanObject
     Attribute eventNotifier : EByte
 
   Class MsReferenceTypeNode -> MsNode
-    Attribute isAbstract : EBoolean
-    Attribute symmetric : EBoolean
+    Attribute isAbstract : EBooleanObject
+    Attribute symmetric : EBooleanObject
     Attribute inverseName : EString
 
   Class MsVariableNode -> MsNode
@@ -242,8 +251,8 @@ Package OpcUaDefinition <http://at.pro2future/shopfloors/opcUaDefinition>
   Class MsVariableTypeNode -> MsNode
     Attribute value : EJavaObject
     Attribute dataType : EString
-    Attribute valueRank : EInt
-    Attribute isAbstract : EBoolean
+    Attribute valueRank : EIntegerObject
+    Attribute isAbstract : EBooleanObject
 
   Class MsDataTypeNode -> MsNode
     Attribute isAbstract : EBoolean
@@ -260,15 +269,15 @@ Package OpcUaDefinition <http://at.pro2future/shopfloors/opcUaDefinition>
 
   Class MsNodeId
     Attribute Identifier : EJavaObject<<1..1>>
-    Attribute namespaceIndex : EShortObject<<1..1>>
-    Attribute allowOverrideNamespaceIndex : EBooleanObject<<1..1>>
+    Attribute namespaceIndex : EInt<<1..1>>
+    Attribute allowOverrideNamespaceIndex : EBoolean<<1..1>>
 
   Class MsLocalizedText
     Attribute locale : EString
     Attribute text : EString
 
   Class MsQualifiedName
-    Attribute namespaceIndex : EShortObject
+    Attribute namespaceIndex : EShort
     Attribute name : EString
 
 Package ExtensionsCoreModel <at.pro2future.shopfloors.extensions>
